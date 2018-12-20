@@ -1,8 +1,0 @@
-
-
-https://apple.stackexchange.com/questions/52879/how-to-combine-two-images-into-one-on-a-mac
-
-https://www.youtube.com/watch?v=vnu6FDMCL1Y
-
-# On terminal:
-Aristidiss-MacBook-Pro:vis2rfi aristidiskoitsanos$ convert s1.png s2.png s3.png s4.png s5.png s6.png s7.png s8.png s9.png s10.png s11.png -append result.png
