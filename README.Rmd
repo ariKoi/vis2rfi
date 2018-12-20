@@ -7,43 +7,28 @@ output: github_document
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
+  comment = "#R>",
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
 ```
-# vis2rfi
+  
+\  
+  
+<img src="man/figures/logo_vis2rfi_last.png" style="border-style: none;"/>
 
-The goal of vis2rfi is to ...
+## Visualising 2Way Random Forest Interactions
+
+Utilize random forest variable importance and contribution in order to visualise interactive 3d surfaces of interaction effects. The approach is that of data subsampling and smoothing, in order to experiment with 2-way effect visualizations and to accomodate results from larger data sets that are more difficult to be viewed.  
 
 ## Installation
 
-You can install the released version of vis2rfi from [CRAN](https://CRAN.R-project.org) with:
+You can install the package with:
 
 ``` r
-install.packages("vis2rfi")
+devtools::install.packages("vis2rfi")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+See the package's website for usage and examples. 
