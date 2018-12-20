@@ -69,6 +69,14 @@ to the "all data" interaction effect, quicker and without significant loss of in
 }
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ariKoi/vis2rfi}
+  \item Report bugs at \url{https://github.com/ariKoi/vis2rfi/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Ari Koitsanos \email{aristidis.koitsanos1@ibm.com}
 
