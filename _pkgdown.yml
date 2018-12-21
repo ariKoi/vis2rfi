@@ -1,7 +1,24 @@
+url: https://arikoi.github.io/vis2rfi/
+
 template:
   params:
     bootswatch: simplex
     noindex: true
 
+home:
+  links:
+  - text: Development
+    href: https://github.com/ariKoi/vis2rfi
 
+reference:
+  - title: Main function
+    contents:
+    - ends_with("rfi")
 
+  - title: Reimplementation
+    contents:
+    - starts_with("max")
+
+  - title: Package
+    contents:
+    - contains("package")
