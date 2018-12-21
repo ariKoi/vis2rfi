@@ -2,9 +2,9 @@ Package: vis2rfi
 Type: Package
 Title: Visualising 2Way Random Forest Interactions
 Version: 0.1.0
-Authors@R: person("Ari", "Koitsanos", email = "aristidis.koitsanos1@ibm.com",
+Authors@R: person("Ari", "Koitsanos", email = "airkoi@alumni.stanford.edu",
   role = c("aut", "cre"))
-Maintainer: Ari Koitsanos <aristidis.koitsanos1@ibm.com>
+Maintainer: Ari Koitsanos <airkoi@alumni.stanford.edu>
 Description: Utilize random forest variable importance and contribution in order to visualise interactive 3d surfaces of interaction effects. The approach is that of data subsampling and smoothing, in order to experiment with 2-way effect visualizations and to accomodate results from larger data sets that are more difficult to be viewed.
 Depends: forestFloor, plotly 
 Imports: proxy (>= 0.4.22), progress (>= 1.2.0), dplyr (>= 0.7.8), 
