@@ -72,7 +72,7 @@ to the "all data" interaction effect, quicker and without significant loss of in
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://arikoi.github.io/vis2fi/}
+  \item \url{https://arikoi.github.io/vis2rfi/}
   \item Report bugs at \url{https://github.com/ariKoi/vis2rfi/issues}
 }
 
