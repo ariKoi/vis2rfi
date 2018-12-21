@@ -19,5 +19,5 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
-URL: https://arikoi.github.io/vis2fi/
+URL: https://arikoi.github.io/vis2rfi/
 BugReports: https://github.com/ariKoi/vis2rfi/issues
