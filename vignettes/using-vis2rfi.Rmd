@@ -1,6 +1,6 @@
 ---
 title: "Using vis2rfi"
-author: "Ari Koitsanos - aristidis.koitsanos1@ibm.com"
+author: "Ari Koitsanos - airkoi@alumni.stanford.edu"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
