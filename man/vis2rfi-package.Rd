@@ -78,6 +78,6 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Ari Koitsanos \email{aristidis.koitsanos1@ibm.com}
+\strong{Maintainer}: Ari Koitsanos \email{airkoi@alumni.stanford.edu}
 
 }
