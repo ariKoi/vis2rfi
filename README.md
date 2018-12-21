@@ -21,4 +21,4 @@ devtools::install.packages("vis2rfi")
 Example
 -------
 
-See the [package's website](https://arikoi.github.io/vis2fi/) for usage and examples.
+See the [package's website](https://arikoi.github.io/vis2rfi/) for usage and examples.
