@@ -1,6 +1,6 @@
 template:
   params:
-    bootswatch: cyborg
+    bootswatch: simplex
     noindex: true
 
 
