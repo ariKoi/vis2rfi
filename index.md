@@ -15,6 +15,6 @@ This package currently uses the results of *forestFloor*, hence it is advised th
 
 The package's name is shorthand for *Visualising 2 Way Random Forest Interactions*.
 
-*forestFloor* implements a function for the same purpose, namely *forestFloor::show3d*, which is using *rgl* to create the visualisation. Here the approach taken is different (explained below), while the plotting tool is *plotly*.
+*forestFloor* implements a function for the same purpose, namely *forestFloor::show3d*, which is using [rgl](https://cran.r-project.org/web/packages/rgl/index.html) to create the visualisation. Here the approach taken is different (explained below), while the plotting tool is [plotly](https://cran.r-project.org/web/packages/plotly/index.html).
 
 Further details can be found via the articles tab above.
