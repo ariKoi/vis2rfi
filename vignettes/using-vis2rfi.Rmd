@@ -32,7 +32,7 @@ This package currently uses the results of *forestFloor*, hence it is advised th
 
 The package's name is shorthand for *Visualising 2 Way Random Forest Interactions*.
 
-*forestFloor* implements a function for the same purpose, namely *forestFloor::show3d*, which is using *rgl* to create the visualisation. Here the approach taken is different (explained below), while the plotting tool is *plotly*.  
+*forestFloor* implements a function for the same purpose, namely *forestFloor::show3d*, which is using [rgl](https://cran.r-project.org/web/packages/rgl/index.html) to create the visualisation. Here the approach taken is different (explained below), while the plotting tool is [plotly](https://cran.r-project.org/web/packages/plotly/index.html).  
 
 ## Premise  
 
@@ -54,13 +54,15 @@ To tackle these issues subsampling is used together with smoothing in order to c
 
 ## Subsampling Approaches 
 
+The following subsampling approaches are implemented:
+
 - Random Subsampling : 
 
-Take a random sample of the cases in the observed data set and use that to construct the 3d interaction effect surface of a pair of random forest important variables. 
+Take a random sample of the cases in the observed data set and use that to construct the 3d interaction effect object and/or surface of a pair of random forest important variables. 
 
 - Random Subsampling And GAM Smoothing : 
 
-Similarly as above but in addition fit a feature contribution smoother to the subsample, then resample from this smoother and construct the 3d surface on a more regularly sampled grid in the XY plane than the one observed in the subsample. This way a smoother 3d interaction effect surface can be constructed. 
+Similarly as above but in addition fit a feature contribution smoother to the subsample, then resample from this smoother and construct the 3d surface on a more regularly sampled grid in the XY plane than the one observed in the original subsample. This way a smoother 3d interaction effect surface can be constructed. 
 
 - Random Subsampling With Maximum Dissimilarity Sampling : 
 
@@ -68,7 +70,7 @@ Split a hypothetical random sample of cases in two parts: The base part and the 
 
 Fill the base part with a portion of the hypothetical random sample of observed cases (say 67%) and let the rest (say 33%) pool part be filled by other observed cases that are maximally separated (i.e. via the Euclidean distance) from the cases in the base part. 
 
-In this way, a more diverse range of feature contributions values can be obtained and hence a more accurate 3d surface representation of the 2 way interaction effect can be constructed. The maximum dissimilarity approach is very nicely explained by Kuhn, in the example section of the documenation for maxDissim. 
+In this way, a more diverse range of feature contribution values can be obtained and hence a more accurate 3d object/surface representation of the 2 way interaction effect can be constructed. The maximum dissimilarity approach is very nicely explained by Kuhn, in the example section of the documenation for *caret::maxDissim*. 
 
 - Random Subsampling With Maximum Dissimilarity Sampling And GAM Smoothing : 
 
@@ -123,11 +125,11 @@ The interaction effect is clearly visible: As Petal.Length and Petal.Width both 
  
 However, this is a contrived example with just a handful of data points to depict. It is also shown here primarily for illustration purposes. A real use case scenario could quite possibly render such visualisations very hard to depict due to the issues previously mentioned. 
 
-At this point we can start exploring the combined contribution of any 2 way interactions with *vis2rfi*. As it explained in *forestFloor*, a low R-squared value for the goodness of fit of a particular feature (as with Sepal.Width in the facetted plot above) indicates the presence of a 2 way significant effect with another feature. Indeed, *forestFloor* aims at uncovering 2 way latent interactions, and this is one of its key strengths. 
+At this point we can start exploring the combined contribution of any 2 way interactions with *vis2rfi*. As is explained in *forestFloor*, a low R-squared value for the goodness of fit of a particular feature (as with Sepal.Width in the facetted plot above) indicates the presence of a 2 way significant effect with another feature. Indeed, *forestFloor* aims at uncovering 2 way latent interactions, and this is one of its key strengths. 
 
 For the moment, we stick with the top 2 RF features and further explore their interaction. 
 
-We take a 25% subsample of the data, which is the default **rsf** argument value, and similarly examine the interaction effect of the first two most important variables. In addition we do not standardize the inputs but we do change the default combined contribution function from multiplication to addition.
+We take a 25% subsample of the data, which is the default **rsf** argument value of the package's main function *vis2rfi::vis2rfi*, and similarly examine the interaction effect of the first two most important variables. In addition we do not standardize the inputs but we do change the default combined contribution function from multiplication to addition.
 
 ```{r v3, fig.cap = "3d interaction effect in the prediction contribution of the top 2 RF features, using a 25% subsample.", fig.height=4, fig.width=7}
 # Loading and attaching the package:
@@ -137,12 +139,12 @@ vis2rfi(impInd = c(1,2), ffObj = ff, rsf = 0.25, scaleXY = FALSE, outer = list(F
   
 \  
   
-Remarks : 
+Remarks on the above output : 
 
 - Visualization is a structure-like object composed of various data slices. This is in contrast to a
-single surface object, and as per package premise. 
+single surface view, as was previously mentioned in package premise. 
 - Easy to turn around and examine at any angle. 
-- Rich in colorfulness and interactivity, since leveraging the plotly package. 
+- Rich in colorfulness and interactivity, since leveraging the *plotly* package. 
 - Contour lines, as well as data point interactivity, help in discovering areas of both low and high
 contribution.
 - The interaction effect is similarly found as before but with an important difference: There are also
@@ -163,7 +165,7 @@ vis2rfi(impInd = c(1,2), ffObj = ff, rsf = 0.25, scaleXY = FALSE, seed = 007, ou
   
 \ 
   
-A bit different shape is observed but with similar conclusions to the last plot above. This is due to the small size of this data set. In less contrived scenarios the difference would be more intense. 
+A bit different shape is observed but with similar conclusions to the last plot above. This is due to the small size of this data set. In less contrived scenarios the difference can be more intense as the effect from a markedly different subspace is explored. 
 
 Taking a random subsample does not guarantee having a variety of contribution values in the subsample.
 To account for this we can use the **maxDissim** argument so as to include in the subsample data points that
@@ -203,7 +205,7 @@ vis2rfi(impInd = c(1,2), ffObj = ff, rsf = 0.25, scaleXY = FALSE, maxDissim = TR
   
 \ 
 
-More succinctly than without smoothing, the surface's high upwards incline depicts the increase in the contribution to the prediction. In addition, the interaction effect has been established with only a 25% subset of the data. In many practical applications, this is what is mainly needed to convey the message.  
+More succinctly than without smoothing, the surface's high upwards incline depicts the increase in the contribution to the prediction. In addition, the interaction effect has been established with only a 25% subset of the data. In many practical applications this is enough to convey the message.  
 
 If we would like to further emphasize the interaction effect, we can flatten the 3d surface by lowering the smoothing spline degrees of freedom in the GAM fit to unit values i.e.
 
@@ -217,7 +219,7 @@ Resulting in a 3d plane for this data set while the tilt towards Petal.Length is
 
 ### Example After Fitting With caret package 
 
-This example is also coming from *forestFloor* documentation. 
+This is another example also coming from *forestFloor* documentation. 
 
 ```{r v9, fig.cap = "Main effects in prediction contribution of the top 6 RF features, as exported by forestFloor.", fig.height=4, fig.width=7}
 rm(list=ls())
@@ -266,13 +268,15 @@ vis2rfi(impInd = c(6,7), ffObj = ff, scaleXY = FALSE, outer = list(FUN = "+"))
   
 \ 
 
+Next we utilize a smoother : 
+ 
 ```{r v11, fig.cap = "3d interaction effect in the prediction contribution between the the top 6th and 7th RF features. Smoothing and sampling more extreme cases in the data are also added to the run above.", fig.height=4, fig.width=7}
 vis2rfi(impInd = c(6,7), ffObj = ff, scaleXY = FALSE, maxDissim = TRUE, outer = list(FUN = "+"), smoother = TRUE)
 ```
   
 \
 
-And with multiplying the contributions :
+And with multiplying the contributions i.e. the true functional relationship in the interaction :
 
 ```{r v12, fig.cap = "3d interaction effect in the prediction contribution between the the top 6th and 7th RF features. Function run is with defaults except without variable standardization.", fig.height=4, fig.width=7}
 vis2rfi(impInd = c(6,7), ffObj = ff, scaleXY = FALSE)
